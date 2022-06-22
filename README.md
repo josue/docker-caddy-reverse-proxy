@@ -2,7 +2,7 @@
 
 Navigate:
 - [Demo installation](#add-domains-to-file-etchosts)
-- [Customize your setup instructions](#customize-your-existing-docker-compose-setup)
+- [Customize your existing docker-compose setup](#customize-your-existing-docker-compose-setup)
 
 ----
 
