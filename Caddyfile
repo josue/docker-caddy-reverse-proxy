@@ -1,17 +1,21 @@
+# defines the SSL cert/key files as a snippet to be reused.
 (ssl_certs) {
 	tls "/data/certs/local.cert.pem" "/data/certs/local.key.pem"
 }
 
+# host->container for the frontend webapp
 dev.core.local {
 	import ssl_certs
 	reverse_proxy magento:80
 }
 
+# host->container for the graphql endpoint
 devql.core.local {
 	import ssl_certs
 	reverse_proxy graphql:80
 }
 
+# host->container for the database endpoint
 db.core.local {
 	import ssl_certs
 	reverse_proxy database:3306

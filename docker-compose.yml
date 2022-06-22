@@ -16,7 +16,7 @@ services:
         - $PWD/Caddyfile:/etc/caddy/Caddyfile
         - $PWD/certs:/data/certs
 
-    # All Other Containers
+    # All Other Containers -- For Demo Purposes
     database:
       image: mysql:8.0
       container_name: database
