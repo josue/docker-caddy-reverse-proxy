@@ -1,7 +1,7 @@
 # Docker local development using Caddy as a reverse proxy with HTTPS enabled for local domains.
 
 Navigate:
-- [Demo installation](#add-domains-to-file-etchosts)
+- [Demo installation](#demo-installation)
 - [Customize your existing docker-compose setup](#customize-your-existing-docker-compose-setup)
 
 ----
