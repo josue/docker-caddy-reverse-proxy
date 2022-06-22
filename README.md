@@ -1,6 +1,10 @@
 # Docker local development using Caddy as a reverse proxy with HTTPS enabled for local domains.
 
-Demo installation below:
+Navigate:
+- [Demo installation](#add-domains-to-file-etchosts)
+- [Customize your setup instructions](#customize-your-existing-docker-compose-setup)
+
+----
 
 ## Add domains to file /etc/hosts
 ```
@@ -30,7 +34,9 @@ open "https://dev.core.local"
 open "https://devql.core.local"
 ```
 
-## Modify your existing docker-compose setup:
+----
+
+## Customize your existing docker-compose setup:
 
 
 This requires the **Caddyfile** - Here is a sample with a host & SSL certificate files:
