@@ -1,0 +1,18 @@
+(ssl_certs) {
+	tls "/data/certs/local.cert.pem" "/data/certs/local.key.pem"
+}
+
+dev.core.local {
+	import ssl_certs
+	reverse_proxy magento:80
+}
+
+devql.core.local {
+	import ssl_certs
+	reverse_proxy graphql:80
+}
+
+db.core.local {
+	import ssl_certs
+	reverse_proxy database:3306
+}

@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+    # Reverse proxy using Caddy to route traffic to containers.
+    # See Caddyfile to configure subdomains to each container.       
+    reverse-proxy:
+        image: caddy/caddy:2-alpine
+        container_name: reverse-proxy
+        restart: unless-stopped
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+        - caddy_data:/data
+        - caddy_config:/config
+        - $PWD/Caddyfile:/etc/caddy/Caddyfile
+        - $PWD/certs:/data/certs
+
+    # All Other Containers
+    database:
+      image: mysql:8.0
+      container_name: database
+      restart: always
+      ports:
+        - "3306:3306"
+      volumes:
+        - db:/var/lib/mysql
+      environment:
+        - MYSQL_ROOT_PASSWORD=root
+
+    magento:
+      image: containous/whoami:latest
+      container_name: magento
+      restart: unless-stopped
+      environment:
+        WHOAMI_NAME: fake-app
+
+    graphql:
+      image: containous/whoami:latest
+      container_name: graphql
+      restart: unless-stopped
+      environment:
+        WHOAMI_NAME: fake-graphql
+
+volumes:
+  caddy_data:
+  caddy_config:
+  db:
+    driver: local
