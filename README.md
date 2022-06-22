@@ -5,13 +5,14 @@ Navigate:
 - [Customize your existing docker-compose setup](#customize-your-existing-docker-compose-setup)
 
 ----
+## Demo Installation:
 
-## Add domains to file /etc/hosts
+### - Add domains to file /etc/hosts
 ```
 127.0.0.1 dev.core.local devql.core.local db.core.local
 ```
 
-## Install SSL certificates in local development:
+### - Install SSL certificates in local development:
 
 Requires: `brew install mkcert nss`
 
@@ -25,7 +26,7 @@ sh ./install-ssl-certificates.sh
 2. Then creates and installs the SSL certifications from this subdirectory into your MacOS keychain.
 3. Finally, the files will be utilized by the Caddy container to serve HTTPS connections.
 
-## Run this repo docker-compose setup to see the demo:
+### - Run this repo docker-compose setup to see the demo:
 ```sh
 docker-compose up -d
 
@@ -37,7 +38,6 @@ open "https://devql.core.local"
 ----
 
 ## Customize your existing docker-compose setup:
-
 
 This requires the **Caddyfile** - Here is a sample with a host & SSL certificate files:
 ```nginx
